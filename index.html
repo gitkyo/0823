@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <!-- l'en tête de la page web qui me permet de configurer la page (partie invisible) -->
+    <head>
+        <!-- balise meta charset pour définir l'encodage de la page -->
+        <meta charset="UTF-8">
+
+        <!-- balise meta viewport pour définir la largeur de la page en fonction de la largeur de l'écran (responsive) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- la balise title qui me permet de définir le titre de la page (apparaît dans l'onglet de votre navigateur) -->
+        <title>Document</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+
+
+        <!-- ajout de bootstrap pour le css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+        <!-- mon css mode dev -->
+        <link rel="stylesheet" href="style.css">
+        <!-- mon css mode prod -->
+        <!-- <link rel="stylesheet" href="style.min.css"> -->
+
+        <!-- favicon -->
+        <link rel="icon" href="favicon.ico" />
+
+    </head>
+
+
+    <!-- le corps de la page web qui me permet de mettre le contenu de la page (la partie visible de la page) -->
+    <body>
+    
+    <!-- ici la navbar de bootstrap : https://getbootstrap.com/docs/5.3/components/navbar/ -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <!-- test de poid d'image entre logo png et dataURI -->
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAABpCAMAAAB4So3GAAACi1BMVEUAAAD9/f3////+/v7////////5+fn7+/v6+vrr7Oz19fXg4eHz8/T29/fX2Nn////Nz9Df4OGrrq/Lzc7////39/i0trjJy8zp6ur+/v7////9/f2lqKr////Jy8zY2drl5ubv7/Crra/////V1tfh4uP39/j9/f3////////DxcbP0dHb3N3s7e2foqSws7T///+7vb7////b3N3////h4uP////6+vv9/f2eoaO0trj////P0NHR0tP////+/v6doKL///+ipaeipKajpqimqKqtsLKvsrSytbe5u73////P0NHa29z///+hpKb///////+mqav///+3ubu9v8D////////AwsPExsf////Jy8zW19j////n6Ojl5uf19vb////19fWeoaOlqKn///+nqaunqqymqKqqra////+sr7H///+1uLn////Fx8j////////X2NnV1tf////U1dbY2dre3+D////V1tf////g4eH///////+6vL2wsrS4u7y+wMHMzs/IysvMzs/Fx8jS09TExsfY2dr///////+anZ+nqaz///+usLL////////////////Y2dr////s7e2jpqj///+pq63///+2ubrBw8S1uLn////////Hycr////////////////P0dH////i4+P///+anaCgo6WbnqCeoaOfoqScn6EnKSuZnJ6doKIjJScpKy2Ym53HyMgmKCqbn6EwMjTm5+eXmpyVmJp+f4AhIyUdICLy8vIcHiAXGRseICLW19eztLRUVlj6+/orLS/t7e3q6+vg4eHe3t7Pz9DExcWJiouGh4iBgoNLTU9ERUc7PT81NzkyNDaMjY57fH1qbG1dX2BZWlz0il+rAAAApnRSTlMADecCamIQAwoiGj8dFEj7XjzMcSkSrWknBDMI3ZKOYS0szptTMgwG9eyAYEUp+MC9q6ZbODY1BwX2qoBkWFQW+/Lr6OLVxry2oZZqSybx387MyaWXk46KhHp3UUc3MCMeGPLq5OPaz8nBwbq0n56FcG1pZmRZVFBOTEbZz7y4nI99e3p2cm1mWUDx4rS0r4N1X11DMPjm09K2m46NjIpVLdu3e3ZKRPbWOAAACEhJREFUeNrswYEAAAAAgKD9qRepAgAA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" alt="">
+              <!-- <img src="logo6.png" alt=""> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mes projets</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+               
+            </div>
+            </div>
+        </nav>
+        
+        <h1 class="monTitre">  Titre de niveau 1</h1>
+        
+        <!-- essai des sprites  -->
+        <!-- <div class="logo"></div> -->
+
+
+        <p>
+            ici apparait le contenu, je met ici mes balises html
+        </p>
+
+
+        <!-- un slider Bootstrapp -->
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1688890239634-86a95e80c3ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1688764896180-6b894eade5e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1666278749123-6cc58220fda9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- container est une classe de bootstrap qui permet de créer un bloc centré -->
+        <div class="container">         
+          
+          <!-- row est une classe de bootstrap qui permet de créer une ligne -->
+          <div class="row">
+
+            <!-- col est une classe de bootstrap qui permet de créer une colonne, 12 le chiffre pour indiquer que le contenu se positionne sur un ligne complète -->
+            <div class="col-lg-12">
+              <p class="p1">Ceci est un text dans un container de bootstrap et une colone 12</p>            
+            </div>
+          
+          </div>
+          
+
+          <!-- une nouvelle ligne -->
+          <div class="row">
+
+            <!-- des colones  -->
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-6">
+              <p class="p2">Ceci est un text dans un container de bootstrap et une colone qui change selon la taille de l'écran</p>            
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-8 col-lg-6">
+              <p class="p2">Ceci est un text dans un container de bootstrap et une colone qui change selon la taille de l'écran</p>            
+            </div>
+          
+          </div>          
+          
+
+
+          <div class="row fold2 justify-content-center">
+
+            <div class="col-md-6 col-lg-4">
+              <div class="card" style="width: 18rem;">
+                <img src="https://images.unsplash.com/photo-1688890239634-86a95e80c3ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+              <div class="card" style="width: 18rem;">
+                <img src="https://images.unsplash.com/photo-1688764896180-6b894eade5e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+              <div class="card" style="width: 18rem;">
+                <img src="https://images.unsplash.com/photo-1666278749123-6cc58220fda9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- essai sprite -->
+        <!-- <div class="capture"></div> -->
+
+        
+
+        <footer>
+
+          <div class="container-fluid">
+            <row class="row">
+              <div class="col-lg-4">
+                Réseau sociaux <br>
+                icon 1 <br>
+                icon 2 <br>
+                icon 3 <br>
+              </div>
+
+              <div class="col-lg-4">
+                Newsletter <br>
+                <input type="text" placeholder="Votre email"> <br>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAABpCAMAAAB4So3GAAACi1BMVEUAAAD9/f3////+/v7////////5+fn7+/v6+vrr7Oz19fXg4eHz8/T29/fX2Nn////Nz9Df4OGrrq/Lzc7////39/i0trjJy8zp6ur+/v7////9/f2lqKr////Jy8zY2drl5ubv7/Crra/////V1tfh4uP39/j9/f3////////DxcbP0dHb3N3s7e2foqSws7T///+7vb7////b3N3////h4uP////6+vv9/f2eoaO0trj////P0NHR0tP////+/v6doKL///+ipaeipKajpqimqKqtsLKvsrSytbe5u73////P0NHa29z///+hpKb///////+mqav///+3ubu9v8D////////AwsPExsf////Jy8zW19j////n6Ojl5uf19vb////19fWeoaOlqKn///+nqaunqqymqKqqra////+sr7H///+1uLn////Fx8j////////X2NnV1tf////U1dbY2dre3+D////V1tf////g4eH///////+6vL2wsrS4u7y+wMHMzs/IysvMzs/Fx8jS09TExsfY2dr///////+anZ+nqaz///+usLL////////////////Y2dr////s7e2jpqj///+pq63///+2ubrBw8S1uLn////////Hycr////////////////P0dH////i4+P///+anaCgo6WbnqCeoaOfoqScn6EnKSuZnJ6doKIjJScpKy2Ym53HyMgmKCqbn6EwMjTm5+eXmpyVmJp+f4AhIyUdICLy8vIcHiAXGRseICLW19eztLRUVlj6+/orLS/t7e3q6+vg4eHe3t7Pz9DExcWJiouGh4iBgoNLTU9ERUc7PT81NzkyNDaMjY57fH1qbG1dX2BZWlz0il+rAAAApnRSTlMADecCamIQAwoiGj8dFEj7XjzMcSkSrWknBDMI3ZKOYS0szptTMgwG9eyAYEUp+MC9q6ZbODY1BwX2qoBkWFQW+/Lr6OLVxry2oZZqSybx387MyaWXk46KhHp3UUc3MCMeGPLq5OPaz8nBwbq0n56FcG1pZmRZVFBOTEbZz7y4nI99e3p2cm1mWUDx4rS0r4N1X11DMPjm09K2m46NjIpVLdu3e3ZKRPbWOAAACEhJREFUeNrswYEAAAAAgKD9qRepAgAA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" alt="">
+              </div>
+
+              <div class="col-lg-4">
+                Contact <br>
+                1 rue des poteaux 97410 saint-Pierre <br>
+                0692 12 34 56 <br>
+              </div>
+            </row>
+          </div>
+            
+        </footer>
+
+        <!-- le javascript de bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </body>
+
+
+</html>
