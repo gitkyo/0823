@@ -40,6 +40,10 @@ footer{
     margin-top: 80px;
 }
 
+nav{
+    color: yellow;
+}
+
 
 /* exemple de meia querie : https://www.alsacreations.com/article/lire/930-css3-media-queries.html */
 
